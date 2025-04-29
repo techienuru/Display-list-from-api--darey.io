@@ -1,6 +1,9 @@
-const List = ({ data, renderChars }) => {
-  console.log("Data Array: ", data);
-  return <ul className="char-list">{data.map((char) => renderChars(char))}</ul>;
+import style from "./List.module.css";
+
+const List = ({ data, RenderChars }) => {
+  return (
+    <ul className={style.charList}>{data.map((char) => RenderChars(char))}</ul>
+  );
 };
 
 export default List;

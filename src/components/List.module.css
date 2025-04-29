@@ -1,0 +1,88 @@
+:root {
+  --primary-color: #003844;
+  --secondary-color: #006c67;
+  --background-color: #f0f0f0;
+  --tertiary-color: #e9190f;
+  --fourth-color: #ff0f80;
+  --fifth-color: #ffae03;
+  --text-color: #2c3e50;
+  --text-color-light: #ecf0f1;
+  --text-color-dark: #34495e;
+  --font-family: "Arial", sans-serif;
+}
+.charList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: var(--background-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 2rem 3rem;
+}
+.charListItem {
+  flex: 20%;
+  border-radius: 10px;
+  list-style: none;
+  transform: skewX(7deg);
+  background-image: linear-gradient(
+    to bottom,
+    #003844,
+    #00414c,
+    #004b54,
+    #00555a,
+    #005f60,
+    #00675c,
+    #006e51,
+    #157442,
+    #49750d,
+    #7b6f00,
+    #b35a00,
+    #e9190f
+  );
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+.charListItem:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    to top,
+    #003844,
+    #00414c,
+    #00555a,
+    #005f60,
+    #006a62,
+    #007561,
+    #1e805c,
+    #478d49,
+    #749631,
+    #a59b16,
+    #db9a0f,
+    #004b54
+  );
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.charListItemHeader h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--tertiary-color);
+  font-style: oblique;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px var(--text-color-dark);
+}
+.charListItemHeader img {
+  width: 100%;
+  height: auto;
+}
+.charListItemBody {
+  padding: 1rem;
+  background-color: var(--fifth-color);
+  color: var(--text-color-dark);
+  text-shadow: 1px 1px 2px var(--text-color-dark);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.charListItemBody p {
+  margin: 0.2rem 0;
+}

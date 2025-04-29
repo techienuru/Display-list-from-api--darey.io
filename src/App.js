@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import List from "./components/List";
 import useFetch from "./useFetch";
+import RenderChars from "./utils/RenderChars";
 
 // Display list from an API
 // Poject objectives:
@@ -21,37 +22,26 @@ function App() {
     error
   } = useFetch("https://rickandmortyapi.com/api/character");
 
-  const renderChars = (char) => {
-    return (
-      <li className="char-list-item" key={char.id}>
-        <img src={char.image} alt={`${char.name}`} width="50" height="50" />
-        <p>
-          <strong>Name: </strong>
-          {char.name}
-        </p>
-        <p>
-          <strong>Gender: </strong>
-          {char.gender}
-        </p>
-        <p>
-          <strong>Species: </strong>
-          {char.species}
-        </p>
-        <p>
-          <strong>Status: </strong>
-          {char.status}
-        </p>
-      </li>
-    );
-  };
-
   return (
     <div className="app-container">
       <main className="main-content">
         <div className="char-list-container">
-          {isLoading && <div className="preloader">Loading...</div>}
-          {error && <div className="errorloader">{error}</div>}
-          {chars && <List data={chars} renderChars={renderChars} />}
+          {isLoading && (
+            <div className="preloader-container">
+              <div className="preloader"></div>
+            </div>
+          )}
+          {error && (
+            <div className="error-message">
+              <p>{error}</p>
+            </div>
+          )}
+          {chars && chars.length === 0 && (
+            <div className="empty-list-message">
+              <p>No characters found.</p>
+            </div>
+          )}
+          {chars && <List data={chars} RenderChars={RenderChars} />}
         </div>
       </main>
     </div>

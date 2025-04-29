@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(url)
       .then((res) => {
         if (!res.ok) {
-          throw Error("Server Malfunction, Failed to fetch from API");
+          throw new Error(
+            "Unable to fetch data from the API. Please try again later."
+          );
         }
         return res.json();
       })
